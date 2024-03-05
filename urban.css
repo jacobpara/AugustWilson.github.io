@@ -3,11 +3,15 @@ body {
     padding: 0;
     background-color: #689F38;
 }
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;		
+}
+
 .header {
     background-color: black;
     color: white;
-    padding: 10px 20px;
-    font-family: Arial, Helvetica, sans-serif;		
+    padding: 10px 20px;	
 }
 
 .navbar {
