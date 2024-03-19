@@ -76,5 +76,6 @@ a:visited {
 }
 
 #temporary {
-    margin: 1;
+    margin-left: 20px;
+    background-color: white;
 }
