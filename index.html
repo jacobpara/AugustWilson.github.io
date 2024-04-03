@@ -36,11 +36,45 @@
 <!--<div class="container">-->
 <center>
 <img id="map" src="hill2.jpeg">
-<div class="dot"></div>
-<div id="tooltip" class="tooltip" style="display: none;">This is some information.</div>
+<div class="dot" onmouseover="popup()" onmouseout="hide()"></div>
+<div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">
+    This is some information.<br>I'm making a paragraph</div>
 </center>
 <!--</div>-->
 <!-- Navigation bar can be added here in the future -->
-<script src="box.js"></script>
+<script type="text/javascript">
+var hoverFlag = false;
+	
+	function popup() {
+        var dot = document.querySelector(".dot");
+		var tooltip = document.getElementById("tooltip");
+        tooltip.style.display = "block";
+        //tooltip.innerHTML = "This is some information."; // Change this to your desired message
+        // Position the tooltip
+		/*
+        tooltip.style.left = (event.clientX - 4) + "px";
+        tooltip.style.top = (event.clientY + 4) + "px";
+		*/
+		tooltip.style.left = (dot.offsetLeft + 8) + "px";
+        tooltip.style.top = (dot.offsetTop + dot.offsetHeight - 10) + "px"; // Adjusting position to be below the dot
+    }
+	
+	function hide() {
+        if (!hoverFlag) {
+			var tooltip = document.getElementById("tooltip");
+			tooltip.style.display = "none";
+		}	
+	}
+	
+	function keepPopup() {
+        hoverFlag = true;
+    }
+	
+	function releasePopup() {
+        hoverFlag = false;
+        hide(); // Hide the popup when releasing hover from the tooltip
+    }
+    
+</script>
 </body>
 </html>
