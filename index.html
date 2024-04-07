@@ -48,8 +48,9 @@
 var hoverFlag = false;
 	
 	function popup() {
-        var dot = document.querySelector(".dot");
-		var tooltip = document.getElementById("tooltip");
+        if (hoverFlag) {
+	var dot = document.querySelector(".dot");
+	var tooltip = document.getElementById("tooltip");
         tooltip.style.display = "block";
         //tooltip.innerHTML = "This is some information."; // Change this to your desired message
         // Position the tooltip
@@ -59,6 +60,7 @@ var hoverFlag = false;
 		*/
 		tooltip.style.left = (dot.offsetLeft + 8) + "px";
         tooltip.style.top = (dot.offsetTop + dot.offsetHeight - 10) + "px"; // Adjusting position to be below the dot
+		}
     }
 	
 	function hide() {
