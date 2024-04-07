@@ -37,7 +37,7 @@
 <center>
 <img id="map" src="hill2.jpeg">
 <div class="dot" onmouseover="popup()" onmouseout="hide()">
-<div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">
+<div id="tooltip" class="tooltip" style="display: none;">   <!--onmouseover="keepPopup()"   onmouseout="releasePopup()"-->
     This is some information.<br>I'm making a paragraph</div>
 	</div>
 </center>
@@ -66,7 +66,7 @@ var hoverFlag = false;
 			tooltip.style.display = "none";
 		}	
 	}
-	
+	/*
 	function keepPopup() {
         hoverFlag = true;
     }
@@ -75,7 +75,7 @@ var hoverFlag = false;
         hoverFlag = false;
         hide(); // Hide the popup when releasing hover from the tooltip
     }
-    
+    */
 </script>
 </body>
 </html>
