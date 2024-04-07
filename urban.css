@@ -51,8 +51,8 @@ a:visited {
 
 .dot {
     position: absolute;
-    top: 50%;
-    left: 30%;
+    top: 100px;                 /*50%;*/
+    left: 100px;          /*30%;*/
     /*transform: translate(-50%, -50%);*/
     background-color: red;
     padding: 12px;
