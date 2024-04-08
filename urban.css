@@ -51,8 +51,6 @@ a:visited {
 
 .dot {
     position: absolute;
-    /*top: 50%;
-    left: 50%;*/
     /*transform: translate(-50%, -50%);*/
     background-color: red;
     padding: 12px;
@@ -76,8 +74,18 @@ a:visited {
 }
 
 #house {
-    top: 200px;
-    left: 1200px;
+    top: 336px;
+    left: 560px;
+}
+
+#freedom {
+    top: 530px;
+    left: 575px;
+}
+
+#crawford {
+    top: 343px;
+    left: 840px;
 }
 
 #temporary {
