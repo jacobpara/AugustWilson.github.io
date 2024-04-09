@@ -36,15 +36,15 @@
 <!--<div class="container">-->
 <center>
 <img id="map" src="hill2.jpeg">
-<div id="house" class="dot" onmouseover="popup()" onmouseleave="releasePopup()"></div>    <!--onmouseout="hide()"  onmouseleave="releasePopup()"-->
+<div id="house" class="dot" onmouseover="popup(house)" onmouseleave="releasePopup()"></div>    <!--onmouseout="hide()"  onmouseleave="releasePopup()"-->
 <div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseleave="releasePopup()">   <!--onmouseover="keepPopup()"   onmouseout="releasePopup()"-->
     This is some information.<br>I'm making a paragraph<br><a href="free.html">Freedom Corner</a></div>
 
-<div id="freedom" class="dot" onmouseover="popup()" onmouseout="hide()"></div>
+<div id="freedom" class="dot" onmouseover="popup(freedom)" onmouseout="hide()"></div>
 <div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">This is some information.<br>I'm making a paragraph
 <br>to test the box's expansion</div>
 
-<div id="crawford" class="dot" onmouseover="popup()" onmouseout="hide()"></div>
+<div id="crawford" class="dot" onmouseover="popup(crawford)" onmouseout="hide()"></div>
 <div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">This is some information.<br>I'm making a paragraph
 <br>to test the box's expansion</div>	
 </center>
@@ -53,9 +53,9 @@
 <script type="text/javascript">
 var hoverFlag = false;
 	
-	function popup() {
-        keepPopup();
-	var dot = document.querySelector(".dot");
+    function popup() {
+        keepPopup(id);
+	var dot = document.getElementById(id);
 	var tooltip = document.getElementById("tooltip");
         tooltip.style.display = "block";
         //tooltip.innerHTML = "This is some information."; // Change this to your desired message
@@ -64,23 +64,23 @@ var hoverFlag = false;
         tooltip.style.left = (event.clientX - 4) + "px";
         tooltip.style.top = (event.clientY + 4) + "px";
 		*/
-		tooltip.style.left = (dot.offsetLeft + 8) + "px";
+	tooltip.style.left = (dot.offsetLeft + 8) + "px";
         tooltip.style.top = (dot.offsetTop + dot.offsetHeight - 10) + "px"; // Adjusting position to be below the dot
 		
     }
 	
-	function hide() {
+    function hide() {
         if (hoverFlag == false) {
-			var tooltip = document.getElementById("tooltip");
-			tooltip.style.display = "none";
-		}	
-	}
+	    var tooltip = document.getElementById("tooltip");
+	    tooltip.style.display = "none";
+	}	
+     }
 	
-	function keepPopup() {
+    function keepPopup() {
         hoverFlag = true;
     }
 	
-	function releasePopup() {
+    function releasePopup() {
         hoverFlag = false;
         hide(); // Hide the popup when releasing hover from the tooltip
     }
