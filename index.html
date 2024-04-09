@@ -21,68 +21,63 @@
 </div>
 <br>
 <br>
-<!--<div id="temporary" text-align=right margin-left=0.2>pages with content...will modify this later. Click on the links below to take you to the information for each page
-    <br>
-    <a class="midterm" href="free.html">Freedom Corner</a>
-    <br>
-    <a class="midterm" href="crawford.html">Crawford Grill</a>
-    <br>
-    <a class="midterm" href="house.html">August Wilson's House</a>
-    <br>
-    <a class="midterm" href="grocery.html">Mainway Supermarket</a>
-    <br>
-    <a class="midterm" href="ester.html">1839 Wylie Avenue</a>
-</div>  -->
-<!--<div class="container">-->
 <center>
 <img id="map" src="hill2.jpeg">
-<div id="house" class="dot" onmouseover="popup(house)" onmouseout="hide()"></div>    <!--onmouseout="hide()"  onmouseleave="releasePopup()"-->
-<div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">   <!--onmouseover="keepPopup()"   onmouseout="releasePopup()"-->
-    This is some information.<br>I'm making a paragraph<br><a href="free.html">Freedom Corner</a></div>
-
-<div id="freedom" class="dot" onmouseover="popup(freedom)" onmouseout="hide()"></div>
-<div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">This is some information.<br>I'm making a paragraph
-<br>to test the box's expansion</div>
-
-<div id="crawford" class="dot" onmouseover="popup(crawford)" onmouseout="hide()"></div>
-<div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">This is some information.<br>I'm making a paragraph
-<br>to test the box's expansion</div>	
+<div class="dot" id="house"></div>
+    <div class="tooltip" style="display: none;"><p>August Wilson House quote</p><a href="house.html">August Wilson House</a></div>
+<div class="dot" id="freedom"></div>
+    <div class="tooltip" style="display: none;"><p>Freedom Corner quote</p><a href="free.html">Freedom Corner</a></div>
+<div class="dot" id="crawford"></div>
+    <div class="tooltip" style="display: none;"><p>Crawford Grill quote</p><a href="crawford.html">Crawford Grill</a></div>
 </center>
 <!--</div>-->
 <!-- Navigation bar can be added here in the future -->
 <script type="text/javascript">
-var hoverFlag = false;
-	
-    function popup(id) {
-        keepPopup();
-	var dot = document.getElementById(id);
-	var tooltip = document.getElementById("tooltip");
+
+	document.querySelectorAll('.dot').forEach(dot => {
+        dot.addEventListener('mouseover', () => {
+            showTooltip(dot);
+        });
+        dot.addEventListener('mouseout', () => {
+            hideTooltip();
+        });
+    });
+
+    document.querySelectorAll('.tooltip').forEach(tooltip => {
+        tooltip.addEventListener('mouseover', () => {
+            keepTooltip();
+        });
+        tooltip.addEventListener('mouseout', () => {
+            releaseTooltip();
+        });
+    });
+
+    let hoverFlag = false;
+    let currentTooltip = null;
+
+    function showTooltip(dot) {
+        keepTooltip();
+        const tooltip = dot.nextElementSibling;
         tooltip.style.display = "block";
-        //tooltip.innerHTML = "This is some information."; // Change this to your desired message
-        // Position the tooltip
-		/*
-        tooltip.style.left = (event.clientX - 4) + "px";
-        tooltip.style.top = (event.clientY + 4) + "px";
-		*/
-	tooltip.style.left = (id.offsetLeft + 8) + "px";
-        tooltip.style.top = (id.offsetTop + id.offsetHeight - 10) + "px"; // Adjusting position to be below the dot
-		
+        tooltip.style.left = (dot.offsetLeft + 8) + "px";
+        tooltip.style.top = (dot.offsetTop + dot.offsetHeight - 10) + "px";
+        currentTooltip = tooltip;
     }
-	
-    function hide() {
-        if (hoverFlag == false) {
-	    var tooltip = document.getElementById("tooltip");
-	    tooltip.style.display = "none";
-	}	
-     }
-	
-    function keepPopup() {
+
+    function hideTooltip() {
+        if (!hoverFlag && currentTooltip) {
+            currentTooltip.style.display = "none";
+            currentTooltip = null;
+        }
+    }
+
+    function keepTooltip() {
         hoverFlag = true;
     }
-	
-    function releasePopup() {
+
+    function releaseTooltip() {
         hoverFlag = false;
-        hide(); // Hide the popup when releasing hover from the tooltip
+        //hideTooltip();
     }
     
 </script>
