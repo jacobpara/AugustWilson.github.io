@@ -88,6 +88,21 @@ a:visited {
     left: 840px;
 }
 
+#housePop {
+    height: 100px;
+	width: 250px;
+}
+
+#freePop {
+    height: 50px;
+	width: 300px;
+}
+
+#grillPop {
+   height: 100px;
+	width: 300px;
+}
+
 #temporary {
     margin-left: 20px;
     background-color: white;
