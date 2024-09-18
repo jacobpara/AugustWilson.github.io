@@ -137,7 +137,7 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
     function showTooltip(dot) {
         keepTooltip();
         const tooltip = dot.nextElementSibling;
-        //tooltip.style.display = "block";
+        tooltip.style.display = "block";
 	tooltip.classList.add('show');
         tooltip.style.left = (dot.offsetLeft + 8) + "px";	
 	tooltip.style.top = (dot.offsetTop - 85 + dot.offsetHeight) + "px"; 
@@ -147,7 +147,7 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 
     function hideTooltip() {
         if (!hoverFlag && currentTooltip) {
-            //currentTooltip.style.display = "none";
+            currentTooltip.style.display = "none";
 	    currentTooltip.classList.remove('show');
             currentTooltip = null;
         }
