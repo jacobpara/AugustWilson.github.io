@@ -78,15 +78,31 @@ a:visited {
 }
 
 .tooltip {
+	/*
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 8px;
     border-radius: 5px;
     z-index: 2;
-    display: none; /* Initially hidden */
-	height: 100px;
-	width: 300px;
+    /*display: none; /* Initially hidden */
+    /*height: 100px;
+    width: 300px;*/
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    z-index: 2;
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.5s ease; /* Smooth fade-in and fade-out */
+    height: 100px;
+    width: 300px;
+    pointer-events: none; /* Disable pointer events to prevent hover issues */
+}
+
+.tooltip.show {
+    opacity: 1; /* Make it visible when 'show' class is added */
 }
 
 #housePop {
