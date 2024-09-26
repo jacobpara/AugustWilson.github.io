@@ -90,7 +90,7 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 	<img id="map" src="hill2.jpeg">
     
 	<div class="dot" id="house" onmouseover="popup(house)" onmouseout="hide()">2</div> <!--class="dot"-->
-    <div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()"><a href="house.html">August Wilson House<img id="housePic" alt="August Wilson House" src="https://i0.wp.com/nextpittsburgh.com/wp-content/uploads/2024/03/AMartini-August-Wilson-House-scaled.jpg?fit=1200%2C800&ssl=1"></a></div>	
+    <div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()"><a href="house.html">August Wilson House<img id="housePic" alt="August Wilson House" src="https://i0.wp.com/nextpittsburgh.com/wp-content/uploads/2024/03/AMartini-August-Wilson-House-scaled.jpg?fit=1200%2C800&ssl=1"></a></div>
 	
 	<div class="dot" id="freedom" onmouseover="popup(freedom)" onmouseout="hide()">1</div> <!--class="dot"-->
 	<div id="tooltip" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()"><a href="freeTest.html">Freedom Corner<img id="freePic" alt="Freedom Corner" src="https://lh3.googleusercontent.com/proxy/aZ_vozYbIaqwySMPc5lRjOu8uGdw6T8vynLVNeSMEPPI1cSskpHDAqjrHElYJKCJ8U6T0AOstMNkqtHPR40R5MJNF0xj8h9m5-bBXRrLiPEJ7dA7fQ"></a></div>
@@ -166,20 +166,23 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 	var hoverFlag = false;
 	
 	function popup(id) {
-        keepPopup();
+	        keepPopup();
 		var dot = document.getElementById(id);
 		var tooltip = document.getElementById("tooltip");
-        tooltip.style.display = "block";
-        //tooltip.innerHTML = "This is some information."; // Change this to your desired message
-        // Position the tooltip
+
+		console.log(dot);
 		
-        tooltip.style.left = (event.clientX - 4) + "px";
-        tooltip.style.top = (event.clientY + 4) + "px";
-		
+	        tooltip.style.display = "block";
+	        //tooltip.innerHTML = "This is some information."; // Change this to your desired message
+	        // Position the tooltip
+			
+	        tooltip.style.left = (event.clientX - 4) + "px";
+	        tooltip.style.top = (event.clientY + 4) + "px";
+			
 		tooltip.style.left = (id.offsetLeft + 8) + "px";
-        tooltip.style.top = (id.offsetTop + id.offsetHeight - 10) + "px"; // Adjusting position to be below the dot
+	        tooltip.style.top = (id.offsetTop + id.offsetHeight - 10) + "px"; // Adjusting position to be below the dot
 		
-    }
+    	}
 	
 	function hide() {
         if (hoverFlag == false) {
