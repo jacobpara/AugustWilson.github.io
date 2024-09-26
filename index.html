@@ -196,6 +196,11 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
         hoverFlag = false;
         hide(); // Hide the popup when releasing hover from the tooltip
     }
+
+// Add listeners to the tooltip itself to keep it visible
+document.getElementById("tooltip").addEventListener("mouseover", keepPopup);
+document.getElementById("tooltip").addEventListener("mouseout", releasePopup);
+	
 </script>
 </body>
 </html>
