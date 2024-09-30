@@ -88,12 +88,7 @@ a:visited {
     height: 200px;
     width: 230px;
 }
-/*
-#tooltip1 {
-	top: 179px;
-	left: 180px;
-}
-*/
+
 #housePop {
 	height: 230px;
 	width: 190px;
@@ -136,7 +131,7 @@ a:visited {
 }
 
 #esterPic {
-   height: 205px;
+   height: 180px;
    width: 230px;
    display: block;
    position: absolute;   
