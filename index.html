@@ -89,17 +89,17 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 	<div id="parent">
 	<img id="map" src="hill2.jpeg">
     
-	<div class="dot" id="house" onmouseover="popup('house', 'tooltip1')" onmouseout="hide()">2</div> <!--class="dot"-->
-    <a href="house.html"><div id="tooltip1" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">August Wilson House<img id="housePic" alt="August Wilson House" src="https://i0.wp.com/nextpittsburgh.com/wp-content/uploads/2024/03/AMartini-August-Wilson-House-scaled.jpg?fit=1200%2C800&ssl=1"></div></a>
+	<div class="dot" id="house" onmouseover="popup('house', 'tooltip1')" onmouseout="hide('tooltip1')">2</div> <!--class="dot"-->
+    <a href="house.html"><div id="tooltip1" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup('tooltip1')">August Wilson House<img id="housePic" alt="August Wilson House" src="https://i0.wp.com/nextpittsburgh.com/wp-content/uploads/2024/03/AMartini-August-Wilson-House-scaled.jpg?fit=1200%2C800&ssl=1"></div></a>
 	
-	<div class="dot" id="freedom" onmouseover="popup('freedom', 'tooltip2')" onmouseout="hide()">1</div> <!--class="dot"-->
-	<a href="freeTest.html"><div id="tooltip2" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">Freedom Corner<img id="freePic" alt="Freedom Corner" src="https://lh3.googleusercontent.com/proxy/aZ_vozYbIaqwySMPc5lRjOu8uGdw6T8vynLVNeSMEPPI1cSskpHDAqjrHElYJKCJ8U6T0AOstMNkqtHPR40R5MJNF0xj8h9m5-bBXRrLiPEJ7dA7fQ"></div></a>
+	<div class="dot" id="freedom" onmouseover="popup('freedom', 'tooltip2')" onmouseout="hide('tooltip2')">1</div> <!--class="dot"-->
+	<a href="freeTest.html"><div id="tooltip2" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup('tooltip2')">Freedom Corner<img id="freePic" alt="Freedom Corner" src="https://lh3.googleusercontent.com/proxy/aZ_vozYbIaqwySMPc5lRjOu8uGdw6T8vynLVNeSMEPPI1cSskpHDAqjrHElYJKCJ8U6T0AOstMNkqtHPR40R5MJNF0xj8h9m5-bBXRrLiPEJ7dA7fQ"></div></a>
 	
-	<div class="dot" id="crawford" onmouseover="popup('crawford', 'tooltip3')" onmouseout="hide()">3</div> <!--class="dot"-->
-	<a href="crawford.html"><div id="tooltip3" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">Crawford Grill #2<img id="grillPic" alt="Crawford Grill" src="https://i0.wp.com/blog.historian4hire.net/wp-content/uploads/2020/01/CrawfordGrill-oblique.jpg?fit=950%2C633&ssl=1"></div></a>
+	<div class="dot" id="crawford" onmouseover="popup('crawford', 'tooltip3')" onmouseout="hide('tooltip3')">3</div> <!--class="dot"-->
+	<a href="crawford.html"><div id="tooltip3" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup('tooltip3')">Crawford Grill #2<img id="grillPic" alt="Crawford Grill" src="https://i0.wp.com/blog.historian4hire.net/wp-content/uploads/2020/01/CrawfordGrill-oblique.jpg?fit=950%2C633&ssl=1"></div></a>
 	
-	<div class="dot" id="ester" onmouseover="popup('ester', 'tooltip4')" onmouseout="hide()">4</div> <!--class="dot"-->
-	<a href="ester.html"><div id="tooltip4" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup()">1839 Wylie Ave<img id="esterPic" alt="Aunt Esters House" src="ester.jpg"></div></a>
+	<div class="dot" id="ester" onmouseover="popup('ester', 'tooltip4')" onmouseout="hide('tooltip4')">4</div> <!--class="dot"-->
+	<a href="ester.html"><div id="tooltip4" class="tooltip" style="display: none;" onmouseover="keepPopup()" onmouseout="releasePopup('tooltip4')">1839 Wylie Ave<img id="esterPic" alt="Aunt Esters House" src="ester.jpg"></div></a>
 	
 	</div>
 	</td>
@@ -163,7 +163,7 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 	*/
 
 
-	var hoverFlag = false;
+    var hoverFlag = false;
 	
 	function popup(id, toolID) {
 	        keepPopup();
@@ -184,25 +184,25 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 		
     	}
 	
-	function hide() {
-        if (hoverFlag == false) {
-			var tooltip = document.getElementById("tooltip");
-			tooltip.style.display = "none";
-		}	
+	function hide(toolID) {
+	        if (hoverFlag == false) {
+				var tooltip = document.getElementById(toolID);
+				tooltip.style.display = "none";
+			}	
 	}
 	
 	function keepPopup() {
-        hoverFlag = true;
-    }
+        	hoverFlag = true;
+    	}
 	
-	function releasePopup() {
-        hoverFlag = false;
-        hide(); // Hide the popup when releasing hover from the tooltip
-    }
+	function releasePopup(toolID) {
+	        hoverFlag = false;
+	        hide(toolID); // Hide the popup when releasing hover from the tooltip
+    	}
 
 // Add listeners to the tooltip itself to keep it visible
-document.getElementById("tooltip").addEventListener("mouseover", keepPopup);
-document.getElementById("tooltip").addEventListener("mouseout", releasePopup);
+//document.getElementById("tooltip").addEventListener("mouseover", keepPopup);
+//document.getElementById("tooltip").addEventListener("mouseout", releasePopup);
 	
 </script>
 </body>
