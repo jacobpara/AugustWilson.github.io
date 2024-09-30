@@ -184,6 +184,11 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 
 		tooltip.style.left = (dot.offsetLeft + dot.offsetWidth / 2) + "px";
 		tooltip.style.top = (dot.offsetTop - dot.offsetHeight / 2 + 20) + "px";  // Adjust 10px above the dot
+
+		if (hideTimeout) {
+			clearTimeout(hideTimeout);
+			hideTimeout = null;
+		}
     	}
 	
 	function hide(toolID) {
@@ -199,7 +204,8 @@ There are plans to renew the Crawford Grill back to the heart of a community <b 
 	
 	function releasePopup(toolID) {
 	        hoverFlag = false;
-	        hide(toolID); // Hide the popup when releasing hover from the tooltip
+		hideTimeout = setTimeout(() => hide(toolID), 500);  // 500ms delay before hiding
+	        //hide(toolID); // Hide the popup when releasing hover from the tooltip
     	}
 
 // Add listeners to the tooltip itself to keep it visible
